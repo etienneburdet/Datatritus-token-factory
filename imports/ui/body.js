@@ -4,7 +4,7 @@ import { Bins } from '../api/bins.js';
 import { Days } from '../api/bins.js';
 
 import './day.html';
-import './addBin.html';
+import './addBin.js';
 import './body.html';
 
 Template.body.helpers({

@@ -1,5 +1,10 @@
 <template name="addBin">
-  <button id="show-dialog" type="button" class="mdl-button"><i class="mdl-color-text--grey-500 material-icons" role="presentation">add</i> Ajouter un bac … </button>
+  <button type="button" class="mdl-button show-dialog"><i class="mdl-color-text--grey-500 material-icons" role="presentation">add</i> Ajouter un bac … </button>
+
+  {{> addBinDialog}}
+</template>
+
+<template name="addBinDialog">
   <dialog class="mdl-dialog">
     <h4 class="mdl-dialog__title">Ajouter un bac</h4>
     <div class="mdl-dialog__content">
@@ -15,17 +20,20 @@
       <button type="button" class="mdl-button close">Annuler</button>
     </div>
   </dialog>
-  <script>
-    var dialog = document.querySelector('dialog');
-    var showDialogButton = document.querySelector('#show-dialog');
-    if (! dialog.showModal) {
-      dialogPolyfill.registerDialog(dialog);
-    }
-    showDialogButton.addEventListener('click', function() {
-      dialog.showModal();
-    });
-    dialog.querySelector('.close').addEventListener('click', function() {
-      dialog.close();
-    });
-  </script>
 </template>
+
+<!-- JS script
+<script>
+var dialog = document.querySelector('dialog');
+var showDialogButton = document.querySelector('#show-dialog');
+if (! dialog.showModal) {
+  dialogPolyfill.registerDialog(dialog);
+}
+showDialogButton.addEventListener('click', function() {
+  dialog.showModal();
+});
+dialog.querySelector('.close').addEventListener('click', function() {
+  dialog.close();
+});
+</script>
+-->
