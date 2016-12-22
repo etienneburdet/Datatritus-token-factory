@@ -8,9 +8,13 @@ import './addBin.js';
 import './body.html';
 
 Template.body.helpers({
-  days() {
-    return Days.find({});
-  },
+  // days() {
+  //   return Days.find({});
+  // },
+  days: [
+    { jour: 'Mardi 21 Décembre'},
+    { jour: 'Mercredi 22 Décembre'},
+  ],
 
   bins() {
     return Bins.find({});
@@ -24,18 +28,10 @@ Template.day.helpers({
 });
 
 Template.body.events({
-  'submit .new-bin'(event) {
+  'click button.remove-bin'(){
     event.preventDefault();
 
-    const target = event.target;
-    const binName = target.binName.value;
-
-    Bins.insert({
-      binName,
-      createdAt: new Date(),
-    });
-
-    //clear
-    target.text.value = '';
+    Bins.remove(this._id);
   },
+
 });

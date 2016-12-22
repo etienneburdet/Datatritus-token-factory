@@ -7,18 +7,18 @@
 <template name="addBinDialog">
   <dialog class="mdl-dialog">
     <h4 class="mdl-dialog__title">Ajouter un bac</h4>
-    <div class="mdl-dialog__content">
-      <form class="new-bin">
+    <form class="new-bin">
+      <div class="mdl-dialog__content">
         <div class="mdl-textfield mdl-js-textfield">
-          <input class="mdl-textfield__input new-bin" type="text" id="sample1">
+          <input class="mdl-textfield__input" name="binName" type="text" id="sample1">
           <label class="mdl-textfield__label" for="sample1">Nom…</label>
         </div>
-      </form>
-    </div>
-    <div class="mdl-dialog__actions">
-      <button type="button" class="mdl-button">Ajouter</button>
-      <button type="button" class="mdl-button close">Annuler</button>
-    </div>
+      </div>
+      <div class="mdl-dialog__actions">
+        <button type="button" class="mdl-button">Ajouter</button>
+        <button type="submit" class="mdl-button close" for="sample1">Annuler</button>
+      </div>
+    </form>
   </dialog>
 </template>
 

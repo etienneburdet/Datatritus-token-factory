@@ -11,7 +11,7 @@
         <span class="mdl-layout-title">Title</span>
         <nav class="mdl-navigation">
           {{#each bins}}
-          <a class="mdl-navigation__link" href=""><i class="mdl-color-text--grey-500 material-icons" role="presentation">delete</i>{{binName}}</a>
+          <a class="mdl-navigation__link" href="">{{binName}}<button class="mdl-button mdl-js-button mdl-js-ripple-effect remove-bin"><i class="mdl-color-text--grey-500 material-icons" role="presentation">clear</i></button></a>
           {{/each}}
           <!-- Dialog button -->
           {{> addBin}}
