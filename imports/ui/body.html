@@ -1,20 +1,21 @@
 <body>
   <div class="container">
-    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
       <header class="mdl-layout__header">
         <div class="mdl-layout__header-row">
           <!-- Title -->
-          <span class="mdl-layout-title">Massy-TGV</span>
+          <span class="mdl-layout-title"></span>
         </div>
       </header>
       <div class="mdl-layout__drawer">
-        <span class="mdl-layout-title">Title</span>
+        <span class="mdl-layout-title">Massy-TGV</span>
         <nav class="mdl-navigation">
           {{#each bins}}
-          <a class="mdl-navigation__link" href="">{{binName}}<button class="mdl-button mdl-js-button mdl-js-ripple-effect remove-bin"><i class="mdl-color-text--grey-500 material-icons" role="presentation">clear</i></button></a>
+          <a class="mdl-navigation__link" href="">{{binName}}</a>
           {{/each}}
-          <!-- Dialog button -->
+          <!-- manage button -->
           {{> addBin}}
+          <hr>
             <!-- End dialog -->
         </nav>
       </div>

@@ -21,17 +21,15 @@ Template.body.helpers({
   },
 });
 
+Template.body.events({
+  'click button.show-dialog'(){
+    const dialog = document.querySelector('dialog');
+    dialog.showModal();
+  },
+});
+
 Template.day.helpers({
   bins() {
     return Bins.find({});
   },
-});
-
-Template.body.events({
-  'click button.remove-bin'(){
-    event.preventDefault();
-
-    Bins.remove(this._id);
-  },
-
 });
