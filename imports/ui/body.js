@@ -6,6 +6,7 @@ import { Days } from '../api/bins.js';
 import './day.html';
 import './addBin.js';
 import './body.html';
+import './manageBin.html';
 
 Template.body.helpers({
   // days() {
@@ -33,3 +34,5 @@ Template.day.helpers({
     return Bins.find({});
   },
 });
+
+Router.route('/manageBin');

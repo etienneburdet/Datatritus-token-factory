@@ -5,7 +5,7 @@ import { Bins } from '../api/bins.js';
 import './addBin.html';
 
 Template.addBin.events({
-  'click button.show-dialog'(){
+  'click button.add-bin'(){
     const dialog = document.querySelector('dialog');
     dialog.showModal();
   },
@@ -14,6 +14,7 @@ Template.addBin.events({
     const dialog = document.querySelector('dialog');
     dialog.close();
   },
+
 
   'submit .new-bin'(event) {
     event.preventDefault();
