@@ -4,11 +4,9 @@ import { Bins } from '../api/bins.js';
 import { Days } from '../api/bins.js';
 
 import './day.html';
-import './addBin.js';
-import './body.html';
-import './manageBin.html';
+import './home.html';
 
-Template.body.helpers({
+Template.home.helpers({
   // days() {
   //   return Days.find({});
   // },
@@ -22,17 +20,8 @@ Template.body.helpers({
   },
 });
 
-Template.body.events({
-  'click button.show-dialog'(){
-    const dialog = document.querySelector('dialog');
-    dialog.showModal();
-  },
-});
-
 Template.day.helpers({
   bins() {
     return Bins.find({});
   },
 });
-
-Router.route('/manageBin');

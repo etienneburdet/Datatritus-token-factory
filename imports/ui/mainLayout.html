@@ -1,5 +1,4 @@
-<!--
-<body>
+<template name="mainLayout">
   <div class="container">
     <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
       <header class="mdl-layout__header">
@@ -12,7 +11,7 @@
         <span class="mdl-layout-title">Massy-TGV</span>
         <nav class="mdl-navigation">
           {{#each bins}}
-          <a class="mdl-navigation__link" href="/:{{binName}}">{{binName}}</a>
+          <a class="mdl-navigation__link" href="/manageBin/{{binName}}">{{binName}}</a>
           {{/each}}
           <!-- manage button -->
           {{> addBin}}
@@ -21,17 +20,8 @@
         </nav>
       </div>
       <main class="mdl-layout__content mdl-color--grey-100">
-        <div class="mdl-grid">
-          <div class="mdl-layout-spacer"></div>
-          {{#each days}}
-            {{> day}}
-          {{/each}}
-          <div class="mdl-layout-spacer"></div>
-          <ul class="mdl-list">
-          </ul>
-        </div>
+        {{> yield}}
       </main>
     </div>
   </div>
-</body>
--->
+</template>

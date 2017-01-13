@@ -23,11 +23,11 @@ Template.addBin.events({
     const target = event.target;
     const binName = target.binName.value;
 
-
     Bins.insert({
       binName,
       createdAt: new Date(),
     });
+
 
     //clear
     target.binName.value = '';
