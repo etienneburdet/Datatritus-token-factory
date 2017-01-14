@@ -1,17 +1,17 @@
 import { Template } from 'meteor/templating';
 
-import { Bins } from '../../api/bins.js';
+import { Bins } from '../../api/collections.js';
 
 import './addBin.html';
 
 Template.addBin.events({
   'click button.add-bin'(){
-    const dialog = document.querySelector('dialog');
+    const dialog = document.querySelector('dialog.addBinDialog');
     dialog.showModal();
   },
 
   'click button.close'(){
-    const dialog = document.querySelector('dialog');
+    const dialog = document.querySelector('dialog.addBinDialog');
     dialog.close();
   },
 
@@ -19,7 +19,7 @@ Template.addBin.events({
   'submit .new-bin'(event) {
     event.preventDefault();
 
-    const dialog = document.querySelector('dialog');
+    const dialog = document.querySelector('dialog.addBinDialog');
     const target = event.target;
     const binName = target.binName.value;
 

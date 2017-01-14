@@ -1,10 +1,7 @@
 <template name="addBin">
   <button type="button" class="mdl-button add-bin"><i class="mdl-color-text--grey-500 material-icons" role="presentation">add</i> Ajouter un bac … </button>
-  {{> addBinDialog}}
-</template>
 
-<template name="addBinDialog">
-  <dialog class="mdl-dialog">
+  <dialog class="mdl-dialog addBinDialog">
     <h4 class="mdl-dialog__title">Ajouter un bac</h4>
     <form class="new-bin">
       <div class="mdl-dialog__content">
@@ -20,19 +17,3 @@
     </form>
   </dialog>
 </template>
-
-<!-- JS script
-<script>
-var dialog = document.querySelector('dialog');
-var showDialogButton = document.querySelector('#show-dialog');
-if (! dialog.showModal) {
-  dialogPolyfill.registerDialog(dialog);
-}
-showDialogButton.addEventListener('click', function() {
-  dialog.showModal();
-});
-dialog.querySelector('.close').addEventListener('click', function() {
-  dialog.close();
-});
-</script>
--->

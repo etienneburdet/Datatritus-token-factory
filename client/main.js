@@ -1,5 +1,5 @@
 import '../imports/ui/mainLayout.js';
-import '../imports/api/bins.js';
+import '../imports/api/collections.js';
 
 Router.configure({
   layoutTemplate: 'mainLayout'

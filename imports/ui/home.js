@@ -1,7 +1,7 @@
 import { Template } from 'meteor/templating';
 
-import { Bins } from '../api/bins.js';
-import { Days } from '../api/bins.js';
+import { Bins } from '../api/collections.js';
+import { Days } from '../api/collections.js';
 
 import './day.html';
 import './home.html';
