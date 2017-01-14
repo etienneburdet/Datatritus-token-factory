@@ -1,6 +1,6 @@
 import { Template } from 'meteor/templating';
 
-import { Bins } from '../api/bins.js';
+import { Bins } from '../../api/bins.js';
 
 import './addBin.html';
 

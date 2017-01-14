@@ -5,8 +5,8 @@ import { Days } from '../api/bins.js';
 
 import './day.html';
 import './home.js';
-import './addBin.js';
-import './manageBin.js';
+import './bins/addBin.js';
+import './bins/manageBin.js';
 import './mainLayout.html';
 
 
@@ -23,6 +23,7 @@ Template.mainLayout.events({
   },
 });
 
+
 Router.route('/manageBin/:binName', function () {
   this.render('manageBin', {
     data: function () {
@@ -30,6 +31,7 @@ Router.route('/manageBin/:binName', function () {
     }
   });
 });
+
 Router.route('/', function () {
   this.render('home');
 });
