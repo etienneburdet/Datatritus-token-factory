@@ -1,0 +1,37 @@
+/* Position the drawer below the header */
+.mdl-layout--clipped-drawer .mdl-layout__drawer {
+  margin-top: 64px;
+  height: calc(100% - 64px);
+}
+
+.mdl-layout--clipped-drawer.is-small-screen .mdl-layout__drawer { /* On smaller screens where the header is smaller */
+  margin-top: 56px;
+  height: calc(100% - 56px);
+}
+
+/* Position the obfuscator below the header */
+.mdl-layout--clipped-drawer .mdl-layout__obfuscator {
+  margin-top: 64px;
+  height: calc(100% - 64px);
+}
+
+.mdl-layout--clipped-drawer.is-small-screen .mdl-layout__obfuscator {
+  margin-top: 56px;
+  height: calc(100% - 56px);
+}
+
+
+/*
+ * Fixed draw layout
+ */
+
+/* Expand the header over the space reserved for the full-height navigation draw */
+.mdl-layout--clipped-drawer.mdl-layout--fixed-drawer>header.mdl-layout__header {
+  margin-left: 0;
+  width: 100%;
+}
+
+/* Hide the hamburger icon when the drawer is showing */
+.mdl-layout--clipped-drawer.mdl-layout--fixed-drawer:not(.is-small-screen) .mdl-layout__drawer-button {
+  display: none;
+}
