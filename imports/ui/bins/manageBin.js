@@ -13,8 +13,22 @@ Template.manageBin.helpers({
 })
 
 Template.manageBin.events({
-  'click button.delete-bin'(){
+  'click button.delete-bin' () {
     Bins.remove(this._id);
     Router.go('/');
-  }
+  },
+
+  'submit .update-bin' () {
+    event.preventDefault();
+
+    const target = event.target;
+    const weight = target.binWeight.value;
+    const wasteType = target.selectWasteType.value;
+
+    Bins.update(this._id, {
+      $set: {binWeight: weight},
+      $set: {wasteType: wasteType},
+    });
+  },
+
 });

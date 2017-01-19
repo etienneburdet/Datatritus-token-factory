@@ -1,37 +1,39 @@
 <template name="manageBin">
-
-  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select getmdl-select__fix-height">
-      <input class="mdl-textfield__input" type="text" id="sample2" value="Belarus" readonly tabIndex="-1">
-      <label for="sample2">
-          <i class="mdl-icon-toggle__label material-icons">keyboard_arrow_down</i>
-      </label>
-      <label for="sample2" class="mdl-textfield__label">Country</label>
-      <ul for="sample2" class="mdl-menu mdl-menu--bottom-left mdl-js-menu">
-          <li class="mdl-menu__item" data-val="DE">Germany</li>
-          <li class="mdl-menu__item" data-val="BY">Belarus</li>
-          <li class="mdl-menu__item" data-val="RU">Russia</li>
-      </ul>
-  </div>
-
   <div class="mdl-card mdl-cell mdl-cell--6-col mdl-cell--4-col-tablet mdl-shadow--2dp">
-    <div class="mdl-card__title">
-      <h2 class="mdl-card__title-text">{{binName}}</h2>
+    <div class="mdl-card_title">
+      <h2 class="mdl-card__title-text">{{binName}} ({{wasteType}} - {{binWeight}})</h2>
     </div>
     <div class="mdl-card__supporting-text">
-      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select getmdl-select__fix-height">
-        <input class="mdl-textfield__input" type="text" id="sample2" value="Belarus" readonly tabIndex="-1">
-        <label for="sample2">
-            <i class="mdl-icon-toggle__label material-icons">keyboard_arrow_down</i>
-        </label>
-        <label for="sample2" class="mdl-textfield__label">Country</label>
-      </div>
-        <ul for="sample2" class="mdl-menu mdl-menu--bottom-left mdl-js-menu">
-            <li class="mdl-menu__item" data-val="DE">Germany</li>
-            <li class="mdl-menu__item" data-val="BY">Belarus</li>
-            <li class="mdl-menu__item" data-val="RU">Russia</li>
+      <form class="update-bin">
+        <ul class="demo-list-control mdl-list">
+          {{#each wastes}}
+          <li class="mdl-list__item {{#if checked}}checked{{/if}}">
+            <span class="mdl-list__item-primary-content">
+              {{wasteName}}
+            </span>
+            <span class="mdl-list__item-secondary-action">
+              <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="list-checkbox-{{wasteName}}">
+                <input type="checkbox" id="list-checkbox-{{wasteName}}"  name="selectWasteType" class="mdl-checkbox__input toggle-checked" checked="{{checked}}" value="{{wasteName}}" />
+              </label>
+            </span>
+          </li>
+          {{/each}}
         </ul>
-
+        <div class="mdl-textfield mdl-js-textfield">
+          <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="weight" name="binWeight">
+          <label class="mdl-textfield__label" for="weight">{{binWeight}}</label>
+          <span class="mdl-textfield__error">Input is not a number!</span>
+        </div>
+        <br>
+        <button class="mdl-button mdl-js-button mdl-button--raised update-bin">
+          Sauvegarder
+        </button>
+      </form>
+    </div>
+    <div class="mdl-card_actions">
+      <button class="mdl-button mdl-js-button mdl-button--raised delete-bin">
+        Supprimer
+      </button>
     </div>
   </div>
-
 </template>

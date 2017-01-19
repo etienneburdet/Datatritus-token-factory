@@ -11,8 +11,10 @@ Template.home.helpers({
   //   return Days.find({});
   // },
   days: [
-    { jour: 'Mardi 21 Décembre'},
-    { jour: 'Mercredi 22 Décembre'},
+    { jour: 'Lundi 16 Janvier'},
+    { jour: 'Mardi 17 Janvier'},
+    { jour: 'Mercredi 18 Janvier'},
+    { jour: 'Jeudi 19 Janvier'},
   ],
 
   bins() {
