@@ -35,3 +35,8 @@
 .mdl-layout--clipped-drawer.mdl-layout--fixed-drawer:not(.is-small-screen) .mdl-layout__drawer-button {
   display: none;
 }
+
+
+.mdl-grid.center-cards {
+  justify-content: center;
+}

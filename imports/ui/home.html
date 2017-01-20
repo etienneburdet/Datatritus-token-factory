@@ -1,11 +1,7 @@
 <template name="home">
-        <div class="mdl-grid">
-          <div class="mdl-layout-spacer"></div>
-          {{#each days}}
-            {{> day}}
-          {{/each}}
-          <div class="mdl-layout-spacer"></div>
-          <ul class="mdl-list">
-          </ul>
-        </div>
+  <div class="mdl-grid center-cards mdl-color--grey-100">
+    {{#each days}}
+      {{> day}}
+    {{/each}}
+  </div>
 </template>
