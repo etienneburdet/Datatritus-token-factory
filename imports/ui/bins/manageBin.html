@@ -1,4 +1,5 @@
 <template name="manageBin">
+  {{> insertBinForm}}
   <div class="mdl-card mdl-cell mdl-cell--6-col mdl-cell--4-col-tablet mdl-shadow--2dp">
     <div class="mdl-card_title">
       <h2 class="mdl-card__title-text">{{binName}} ({{wasteType}} - {{binWeight}})</h2>
@@ -19,16 +20,16 @@
           </li>
           {{/each}}
         </ul>
-        <div class="mdl-textfield mdl-js-textfield">
-          <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="weight" name="binWeight">
-          <label class="mdl-textfield__label" for="weight">{{binWeight}}</label>
-          <span class="mdl-textfield__error">Input is not a number!</span>
-        </div>
-        <br>
+      </form>
+      <div class="mdl-textfield mdl-js-textfield">
+        <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="weight" name="binWeight">
+        <label class="mdl-textfield__label" for="weight">{{binWeight}}</label>
+        <span class="mdl-textfield__error">Input is not a number!</span>
+      </div>
         <button class="mdl-button mdl-js-button mdl-button--raised update-bin">
           Sauvegarder
         </button>
-      </form>
+
     </div>
     <div class="mdl-card_actions">
       <button class="mdl-button mdl-js-button mdl-button--raised delete-bin">
