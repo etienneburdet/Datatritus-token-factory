@@ -30,7 +30,10 @@ Template.manageBin.events({
 
     // Insert a task into the collection
     Bins.update(this._id, {
-      $set: {binWeight: weight},
+      $set: {
+        binWeight: weight,
+        wasteType: wasteType
+      },
     });
 
     // Clear form
