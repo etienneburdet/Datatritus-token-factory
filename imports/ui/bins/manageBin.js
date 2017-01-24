@@ -18,17 +18,23 @@ Template.manageBin.events({
     Router.go('/');
   },
 
-  'submit .update-bin' () {
+
+  'submit .update-bin'(event) {
+    // Prevent default browser form submit
     event.preventDefault();
 
+    // Get value from form element
     const target = event.target;
-    const weight = target.binWeight.value;
+    const weight = target.setWeight.value;
     const wasteType = target.selectWasteType.value;
 
+    // Insert a task into the collection
     Bins.update(this._id, {
       $set: {binWeight: weight},
-      $set: {wasteType: wasteType},
     });
+
+    // Clear form
+    target.setWeight.value = '';
   },
 
 });
