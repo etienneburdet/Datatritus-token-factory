@@ -10,6 +10,7 @@ Template.manageBin.helpers({
   wastes() {
     return Wastes.find({});
   },
+
 })
 
 Template.manageBin.events({

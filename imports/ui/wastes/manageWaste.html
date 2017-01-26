@@ -1,14 +1,25 @@
 <template name="manageWaste">
-  <div class="mdl-card mdl-cell mdl-cell--6-col mdl-cell--4-col-tablet mdl-shadow--2dp">
-    <div class="mdl-card__title">
-      <h2 class="mdl-card__title-text">{{wasteName}}</h2>
-      <div class="mdl-layout-spacer"></div>
-      <button class="mdl-button mdl-button--icon mdl-button"><i class="material-icons">more_vert</i></button>
-    </div>
-    <div class="mdl-card__supporting-text">
-      <button class="mdl-button mdl-js-button mdl-button--raised delete-waste">
-        Supprimer
-      </button>
+  <div class="mdl-grid center-cards">
+    <div class="mdl-card mdl-cell mdl-cell--5-col mdl-cell--4-col-tablet mdl-cell--4-col-phone mdl-shadow--2dp">
+      <div class="mdl-card__title">
+        <h2 class="mdl-card__title-text">{{wasteName}}</h2>
+      </div>
+      <div class="mdl-card__supporting-text">
+        <form class="change-name">
+          <div class="mdl-textfield mdl-js-textfield">
+            <input class="mdl-textfield__input" type="text" id="newName" name="newName">
+            <label class="mdl-textfield__label" for="newName">Nouveau nom</label>
+          </div>
+          <div class="mdl-card__actions">
+            <button class="mdl-button mdl-js-button mdl-button--raised" type="submit">
+              Sauvegarder
+            </button>
+            <button class="mdl-button mdl-js-button mdl-button--raised mdl-color--red-800 delete-waste">
+              Supprimer
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
   </div>
 </template>

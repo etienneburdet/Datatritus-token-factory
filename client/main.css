@@ -40,3 +40,7 @@
 .mdl-grid.center-cards {
   justify-content: center;
 }
+
+.thin-list {
+  width: 300px;
+}
