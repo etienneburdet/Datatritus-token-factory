@@ -28,6 +28,7 @@ Template.manageBin.events({
     const target = event.target;
     const weight = target.setWeight.value;
     const wasteType = target.selectWasteType.value;
+    const newName = target.newName.value;
 
     // Insert a task into the collection
     Bins.update(this._id, {
@@ -37,8 +38,20 @@ Template.manageBin.events({
       },
     });
 
+    if(newName.length!=0){
+      Bins.update(this._id, {
+        $set: {binName: newName},
+      });
+    }
+
     // Clear form
-    target.setWeight.value = '';
+    target.setWeight.value = '…kg';
+    target.newName.value = 'Nouveau nom';
+
+    if(newName.length!=0){
+      const newRoute = '/manageBin/'+newName;
+      Router.go(newRoute);
+    }
   },
 
 });

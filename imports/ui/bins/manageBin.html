@@ -6,6 +6,10 @@
       </div>
       <div class="mdl-card__supporting-text">
         <form class="update-bin">
+          <div class="mdl-textfield mdl-js-textfield">
+            <input class="mdl-textfield__input" type="text" id="newName" name="newName">
+            <label class="mdl-textfield__label" for="newName">Nouveau nom</label>
+          </div>
           <div class="mdl-list thin-list">
             <ul class="demo-list-control mdl-list">
               {{#each wastes}}
@@ -24,7 +28,7 @@
           </div>
           <div class="mdl-textfield mdl-js-textfield">
             <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="weight" name="setWeight">
-            <label class="mdl-textfield__label" for="weight"></label>
+            <label class="mdl-textfield__label" for="weight">…kg</label>
             <span class="mdl-textfield__error">Input is not a number!</span>
           </div>
           <div class="mdl-card__actions">

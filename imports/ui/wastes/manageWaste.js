@@ -23,12 +23,16 @@ Template.manageWaste.events({
     const target = event.target
     const newName = target.newName.value;
 
-    Wastes.update(this._id, {
-      $set: {wasteName: newName},
-    });
+    if(newName.length!=0){
+      Wastes.update(this._id, {
+        $set: {wasteName: newName},
+      });
+    }
 
-    target.newName.value = '';
-    Router.go('/manageWaste/:newName')
-
+    target.newName.value = 'Nouveau nom';
+    if(newName.length!=0){
+      const newRoute = '/manageWaste/'+newName;
+      Router.go(newRoute);
+    }
   }
 });
