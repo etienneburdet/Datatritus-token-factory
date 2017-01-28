@@ -44,3 +44,21 @@
 .thin-list {
   width: 300px;
 }
+
+.no-border-drawer {
+  border: none;
+}
+
+.mdl-navigation__link:hover {
+  background-color: #00BCD4;
+  color: #37474F;
+}
+
+.demo-drawer-header {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 16px;
+  height: 151px;
+}

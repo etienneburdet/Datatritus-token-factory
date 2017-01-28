@@ -10,10 +10,10 @@ import './bins/addBin.js';
 import './bins/manageBin.js';
 import './wastes/addWaste.js';
 import './wastes/manageWaste.js';
-import './mainLayout.html';
+import './manageLayout.html';
 
 
-Template.mainLayout.helpers({
+Template.manageLayout.helpers({
   bins() {
     return Bins.find({});
   },
@@ -23,7 +23,7 @@ Template.mainLayout.helpers({
   },
 });
 
-Template.mainLayout.events({
+Template.manageLayout.events({
   'click button.show-dialog'(){
     const dialog = document.querySelector('dialog');
     dialog.showModal();
@@ -37,7 +37,6 @@ Router.route('/manageBin/:binName', function () {
       return Bins.findOne({binName: this.params.binName});
     }
   });
-  this.layout('manageLayout');
 });
 
 Router.route('/manageWaste/:wasteName', function () {
@@ -46,7 +45,6 @@ Router.route('/manageWaste/:wasteName', function () {
       return Wastes.findOne({wasteName: this.params.wasteName});
     }
   });
-  this.layout('manageLayout');
 });
 
 Router.route('/', function () {
