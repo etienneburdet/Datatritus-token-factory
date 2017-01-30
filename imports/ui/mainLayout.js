@@ -1,4 +1,5 @@
 import { Template } from 'meteor/templating';
+import { Accounts } from 'meteor/accounts-base';
 
 import { Bins } from '../api/collections.js';
 import { Wastes } from '../api/collections.js';
@@ -12,14 +13,17 @@ import './wastes/addWaste.js';
 import './wastes/manageWaste.js';
 import './mainLayout.html';
 
+Accounts.ui.config({
+  passwordSignupFields: 'USERNAME_ONLY',
+});
 
 Template.mainLayout.helpers({
   bins() {
-    return Bins.find({});
+    return Bins.find({username: Meteor.user().username});
   },
 
   wastes() {
-    return Wastes.find({});
+    return Wastes.find({username: Meteor.user().username});
   },
 });
 

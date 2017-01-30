@@ -24,3 +24,6 @@ zodiase:mdl
 iron:router
 aldeed:autoform
 aldeed:collection2
+accounts-ui
+accounts-password
+accounts-google

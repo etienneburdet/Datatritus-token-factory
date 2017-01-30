@@ -26,6 +26,8 @@ Template.addWaste.events({
     Wastes.insert({
       wasteName,
       createdAt: new Date(),
+      owner: Meteor.userId(),
+      username: Meteor.user().username,
     });
 
 

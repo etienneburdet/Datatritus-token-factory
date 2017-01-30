@@ -27,6 +27,8 @@ Template.addBin.events({
     Bins.insert({
       binName,
       createdAt: new Date(),
+      owner: Meteor.userId(),
+      username: Meteor.user().username,
     });
 
 

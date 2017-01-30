@@ -18,12 +18,12 @@ Template.home.helpers({
   ],
 
   bins() {
-    return Bins.find({});
+    return Bins.find({username: Meteor.user().username});
   },
 });
 
 Template.day.helpers({
   bins() {
-    return Bins.find({});
+    return Bins.find({username: Meteor.user().username});
   },
 });
