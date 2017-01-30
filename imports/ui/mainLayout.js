@@ -37,7 +37,6 @@ Router.route('/manageBin/:binName', function () {
       return Bins.findOne({binName: this.params.binName});
     }
   });
-  this.layout('manageLayout');
 });
 
 Router.route('/manageWaste/:wasteName', function () {
@@ -46,7 +45,6 @@ Router.route('/manageWaste/:wasteName', function () {
       return Wastes.findOne({wasteName: this.params.wasteName});
     }
   });
-  this.layout('manageLayout');
 });
 
 Router.route('/', function () {
