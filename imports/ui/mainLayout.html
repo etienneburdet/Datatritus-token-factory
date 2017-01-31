@@ -1,7 +1,7 @@
 <template name="mainLayout">
   <div class="container">
     <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-      <header class="mdl-layout__header mdl-color--grey-100">
+      <header class="mdl-layout__header">
         <div class="mdl-layout__header-row">
           <!-- Title -->
           <span class="mdl-layout-title"></span>
@@ -14,13 +14,13 @@
         <span class="mdl-layout-title">Massy-TGV</span>
         <nav class="mdl-navigation">
           {{#each bins}}
-            <a class="mdl-navigation__link" href="/manageBin/{{binName}}">{{binName}}</a>
+            <a class="mdl-navigation__link" href="/manageBin/{{_id}}">{{binName}}</a>
           {{/each}}
           <!-- manage button -->
           {{> addBin}}
           <hr>
           {{#each wastes}}
-            <a class="mdl-navigation__link" href="/manageWaste/{{wasteName}}">{{wasteName}}</a>
+            <a class="mdl-navigation__link" href="/manageWaste/{{_id}}">{{wasteName}}</a>
           {{/each}}
           {{> addWaste}}
           <hr>

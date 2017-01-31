@@ -4,12 +4,6 @@ import { Wastes } from '../../api/collections.js';
 
 import './manageWaste.html';
 
-Template.manageWaste.helpers ({
-  currentWaste () {
-    return Wastes.find({_id: this._id})
-  },
-
-});
 
 Template.manageWaste.events({
   'click button.delete-waste' () {
