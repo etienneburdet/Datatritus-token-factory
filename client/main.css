@@ -44,3 +44,7 @@
 .thin-list {
   width: 300px;
 }
+
+.log-form{
+  z-index: 10;
+}

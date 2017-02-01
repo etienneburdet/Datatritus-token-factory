@@ -38,7 +38,7 @@ Template.mainLayout.events({
 Router.route('/manageBin/:binName', function () {
   this.render('manageBin', {
     data: function () {
-      return Bins.findOne({binName: this.params.binName});
+      return Bins.findOne({_id: this.params._id});
     }
   });
 });
@@ -46,7 +46,7 @@ Router.route('/manageBin/:binName', function () {
 Router.route('/manageWaste/:wasteName', function () {
   this.render('manageWaste', {
     data: function () {
-      return Wastes.findOne({wasteName: this.params.wasteName});
+      return Wastes.findOne({_id: this.params._id});
     }
   });
 });
