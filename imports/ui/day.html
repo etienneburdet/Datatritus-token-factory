@@ -5,11 +5,11 @@
       <div class="mdl-layout-spacer"></div>
     </div>
     <div class="mdl-card__supporting-text">
-      <ul class="mdl-list">
         {{#each bins}}
-        <li class="mdl-list__item">{{binName}}</li>
+        <span class="mdl-chip">
+          <span class="mdl-chip__text">{{binName}}</span>
+        </span>
         {{/each}}
-      </ul>
     </div>
   </div>
 </template>

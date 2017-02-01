@@ -3,8 +3,7 @@ import { Template } from 'meteor/templating';
 import { Bins } from '../api/collections.js';
 import { Days } from '../api/collections.js';
 
-import './day.html';
-import './home.html';
+import './day.js';
 
 Template.home.helpers({
 
