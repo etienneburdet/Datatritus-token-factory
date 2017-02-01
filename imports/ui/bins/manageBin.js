@@ -46,12 +46,6 @@ Template.manageBin.events({
 
     // Clear form
     target.setWeight.value = '…kg';
-    target.newName.value = 'Nouveau nom';
-
-    if(newName.length!=0){
-      const newRoute = '/manageBin/'+newName;
-      Router.go(newRoute);
-    }
   },
 
 });

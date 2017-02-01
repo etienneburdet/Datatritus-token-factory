@@ -24,9 +24,5 @@ Template.manageWaste.events({
     }
 
     target.newName.value = 'Nouveau nom';
-    if(newName.length!=0){
-      const newRoute = '/manageWaste/'+newName;
-      Router.go(newRoute);
-    }
-  }
+  },
 });
