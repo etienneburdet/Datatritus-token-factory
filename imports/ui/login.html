@@ -1,0 +1,25 @@
+<template name="logBtn">
+    <!-- Right aligned menu below button -->
+  <button id="demo-menu-lower-right"
+        class="mdl-button mdl-js-button mdl-button--icon">
+  <i class="material-icons">person</i>
+  </button>
+
+  <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
+    for="demo-menu-lower-right">
+  <li class="mdl-menu__item">
+    <div class="mdl-textfield mdl-js-textfield">
+      <input class="mdl-textfield__input" type="text" id="log" name="log">
+      <label class="mdl-textfield__label" for="newName">Login</label>
+    </div>
+  </li>
+  <li class="mdl-menu__item">
+   <div class="mdl-textfield mdl-js-textfield">
+      <input class="mdl-textfield__input" type="text" id="pw" name="pw">
+      <label class="mdl-textfield__label" for="newName">Password</label>
+    </div>
+  </li>
+  <li disabled class="mdl-menu__item">Disabled Action</li>
+  <li class="mdl-menu__item">Yet Another Action</li>
+  </ul>
+</template>

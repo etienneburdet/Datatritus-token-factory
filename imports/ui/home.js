@@ -9,10 +9,12 @@ import './home.html';
 Template.home.helpers({
 
   days: [
-    { jour: moment().format('dddd')},
     { jour: moment().subtract(1,'days').format('dddd')},
     { jour: moment().subtract(2,'days').format('dddd')},
     { jour: moment().subtract(3,'days').format('dddd')},
+    { jour: moment().subtract(4,'days').format('dddd')},
+    { jour: moment().subtract(5,'days').format('dddd')},
+    { jour: moment().subtract(6,'days').format('dddd')},
   ],
 
   bins() {
@@ -21,6 +23,12 @@ Template.home.helpers({
 });
 
 Template.day.helpers({
+  bins() {
+    return Bins.find({username: Meteor.user().username});
+  },
+});
+
+Template.today.helpers({
   bins() {
     return Bins.find({username: Meteor.user().username});
   },

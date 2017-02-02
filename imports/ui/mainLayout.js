@@ -5,6 +5,7 @@ import { Bins } from '../api/collections.js';
 import { Wastes } from '../api/collections.js';
 import { Days } from '../api/collections.js';
 
+import './login.html';
 import './day.html';
 import './home.js';
 import './bins/addBin.js';
