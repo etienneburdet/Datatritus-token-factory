@@ -5,8 +5,16 @@ import { Days } from '../api/collections.js';
 
 import './day.html';
 import './home.html';
+import './ethAcc.html';
 
 Template.home.helpers({
+
+  counter () {
+    web3.eth.getBalance("0xD50460AA1c82b29f4c19B16ACB6e8C46bA05425c",
+    function (err, res){
+      alert(res);
+    })
+  },
 
   days: [
     { jour: moment().subtract(1,'days').format('dddd')},
