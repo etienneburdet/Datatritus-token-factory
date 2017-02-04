@@ -29,3 +29,4 @@ accounts-password
 accounts-google
 momentjs:moment
 ethereum:web3
+frozeman:template-var
