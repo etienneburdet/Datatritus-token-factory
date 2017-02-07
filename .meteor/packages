@@ -30,3 +30,4 @@ accounts-google
 momentjs:moment
 ethereum:web3
 frozeman:template-var
+ethereum:accounts
