@@ -5,8 +5,6 @@ import { Days } from '../api/collections.js';
 
 import './day.html';
 import './home.html';
-import './ethAcc.html';
-
 
 const AbiArray = [{"constant":true,"inputs":[],"name":"name","outputs":[{"name":"","type":"string"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"_newName","type":"string"}],"name":"changeName","outputs":[],"payable":false,"type":"function"}];
 const contractAddress = "0xcd4bb8d07cb7af6b7874faef1969ff1b23e8a427";
@@ -49,9 +47,12 @@ Template.home.helpers({
 });
 
 Template.home.events({
-  'click .change-name'(){
-    myContract.changeName('Pitouf', {gas: 300000},function(){});
-    console.log('clic');
+  'click .change-name-samuel'(){
+    myContract.changeName('Samuel', {gas: 300000},function(){});
+},
+
+'click .change-name-raphael'(){
+  myContract.changeName('Raphael', {gas: 300000},function(){});
 },
 })
 

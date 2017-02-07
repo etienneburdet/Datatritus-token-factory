@@ -5,7 +5,6 @@ import { Bins } from '../api/collections.js';
 import { Wastes } from '../api/collections.js';
 import { Days } from '../api/collections.js';
 
-import './login.html';
 import './day.html';
 import './home.js';
 import './bins/addBin.js';
@@ -13,6 +12,7 @@ import './bins/manageBin.js';
 import './wastes/addWaste.js';
 import './wastes/manageWaste.js';
 import './mainLayout.html';
+import './menuHead.js';
 
 Accounts.ui.config({
   passwordSignupFields: 'USERNAME_ONLY',

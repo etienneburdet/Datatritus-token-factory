@@ -1,6 +1,6 @@
 <template name="mainLayout">
   <div class="container">
-    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-drawer">
       <header class="mdl-layout__header">
         <div class="mdl-layout__header-row">
           <!-- Title -->
@@ -11,7 +11,7 @@
         </div>
       </header>
       <div class="mdl-layout__drawer">
-        <span class="mdl-layout-title">Massy-TGV</span>
+        {{> menuHead}}
         <nav class="mdl-navigation">
           {{#each bins}}
             <a class="mdl-navigation__link" href="/manageBin/{{_id}}">{{binName}}</a>
