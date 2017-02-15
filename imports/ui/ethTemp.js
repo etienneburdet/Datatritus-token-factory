@@ -63,7 +63,7 @@ Template.ethTemp.events({
        // Once the contract has the transactionHash property set and once its deployed on an address.
 
        // e.g. check tx hash on the first call (transaction send)
-       if(!myContract.address) {
+       if(!newToken.address) {
            console.log(newToken.transactionHash); // The hash of the transaction, which deploys the contract
 
        // check address on the second call (contract deployed)

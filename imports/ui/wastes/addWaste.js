@@ -3,6 +3,9 @@ import { Template } from 'meteor/templating';
 import { Wastes } from '../../api/collections.js';
 
 import './addWaste.html';
+import '../../interfacesTemp/contracts.js';
+
+const newToken = web3.eth.contract(newAbi);
 
 Template.addWaste.events({
   'click button.add-waste'(){
@@ -23,16 +26,51 @@ Template.addWaste.events({
     const target = event.target;
     const wasteName = target.wasteName.value;
 
-    Wastes.insert({
-      wasteName,
-      createdAt: new Date(),
-      owner: Meteor.userId(),
-      username: Meteor.user().username,
+    let mySenderAddress = web3.eth.accounts[0];
+    let gasEstimate = web3.eth.estimateGas({data: newData},function(err,res){
+      return res;
+    });
+
+    const newTokenReturned = newToken.new(0, wasteName, 0, 'kg', {
+     from:mySenderAddress,
+     data:newData,
+     gas:gasEstimate},
+     function(err, newToken){
+      if(!err) {
+         // NOTE: The callback will fire twice!
+         // Once the contract has the transactionHash property set and once its deployed on an address.
+
+         // e.g. check tx hash on the first call (transaction send)
+         if(!newToken.address) {
+             console.log(newToken.transactionHash); // The hash of the transaction, which deploys the contract
+
+         // check address on the second call (contract deployed)
+         } else {
+             console.log(newToken.address);
+              // the contract address
+
+              //insert into DB
+              Wastes.insert({
+                wasteName,
+                createdAt: new Date(),
+                owner: Meteor.userId(),
+                ownerAdress: mySenderAddress,
+                tokenAdress: newToken.address,
+                username: Meteor.user().username,
+              });
+
+              //clear
+              target.wasteName.value = '';
+              dialog.close();
+         }
+
+         // Note that the returned "myContractReturned" === "myContract",
+         // so the returned "myContractReturned" object will also get the address set.
+      }
     });
 
 
-    //clear
-    target.wasteName.value = '';
-    dialog.close();
+
+
   },
 });
