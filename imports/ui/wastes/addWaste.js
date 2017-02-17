@@ -7,6 +7,17 @@ import '../../interfacesTemp/contracts.js';
 
 const newToken = web3.eth.contract(newAbi);
 
+
+Template.addWaste.onCreated(function(){
+  this.isLoading = new ReactiveVar(false);
+});
+
+Template.addWaste.helpers({
+  isHidden () {
+    return Template.instance().isHidden.get();
+  },
+})
+
 Template.addWaste.events({
   'click button.add-waste'(){
     const dialog = document.querySelector('dialog.addWasteDialog');
@@ -19,8 +30,9 @@ Template.addWaste.events({
   },
 
 
-  'submit .new-waste'(event) {
+  'submit .new-waste'(event, template) {
     event.preventDefault();
+    template.isLoading.set(true);
 
     const dialog = document.querySelector('dialog.addWasteDialog');
     const target = event.target;
@@ -60,6 +72,7 @@ Template.addWaste.events({
               });
 
               //clear
+              template.isLoading.set(false);
               target.wasteName.value = '';
               dialog.close();
          }

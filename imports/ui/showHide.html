@@ -1,0 +1,15 @@
+<template name="showHide">
+    <button class="mdl-button mdl-button-js mdl-button--raised cacher">Cacher</button>
+    <button class="mdl-button mdl-button-js mdl-button--raised montrer">Montrer</button>
+    {{#if isHidden}}
+    <div class="mdl-card mdl-cell mdl-cell--10-col mdl-cell--8-col-tablet mdl-cell--4-col-phone mdl-shadow--2dp">
+      <div class="mdl-card__title">
+        <h2 class="mdl-card__title-text">LOL</h2>
+        <div class="mdl-layout-spacer"></div>
+      </div>
+      <div class="mdl-card__supporting-text">
+        LULZ {{isHidden}}
+      </div>
+    </div>
+    {{/if}}
+</template>
