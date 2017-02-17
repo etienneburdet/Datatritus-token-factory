@@ -13,8 +13,8 @@ Template.addWaste.onCreated(function(){
 });
 
 Template.addWaste.helpers({
-  isHidden () {
-    return Template.instance().isHidden.get();
+  isLoading () {
+    return Template.instance().isLoading.get();
   },
 })
 
@@ -34,6 +34,7 @@ Template.addWaste.events({
     event.preventDefault();
     template.isLoading.set(true);
 
+
     const dialog = document.querySelector('dialog.addWasteDialog');
     const target = event.target;
     const wasteName = target.wasteName.value;
@@ -48,6 +49,11 @@ Template.addWaste.events({
      data:newData,
      gas:gasEstimate},
      function(err, newToken){
+      if(err) {
+        template.isLoading.set(false);
+        dialog.close();
+      }
+
       if(!err) {
          // NOTE: The callback will fire twice!
          // Once the contract has the transactionHash property set and once its deployed on an address.
