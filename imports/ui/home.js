@@ -6,6 +6,7 @@ import { Days } from '../api/collections.js';
 import './day.html';
 import './home.html';
 import './ethTemp.js';
+import './metaLog.js'
 
 Template.home.helpers({
 
