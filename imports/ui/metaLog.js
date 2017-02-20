@@ -12,21 +12,28 @@ Template.metaLog.helpers({
     return web3.eth.accounts[0];
   },
 
-  accountAddress () {
-    return Ethereum.findOne({username: Meteor.user().username}, {fields: {accountAddress: 1}});
+  ethereumAccount () {
+    return Ethereum.findOne({ owner: Meteor.userId() }).accountAddress;
   },
 });
 
 
 Template.metaLog.events({
   'click .link-account' () {
-    const currentAccount = web3.eth.accounts[0];
-    console.log(currentAccount);
+    const accountAddress = web3.eth.accounts[0];
+    const currentUser = Meteor.userId();
+    console.log(accountAddress);
+    console.log(currentUser);
 
     Ethereum.insert({
-      accountAddress: web3.eth.accounts[0],
-      username: Meteor.user().username,
+      accountAddress,
+      userName: currentUser,
+      owner: Meteor.userId(),
     });
+  },
 
+  'click .test-account' () {
+    const findAccount = Ethereum.findOne( { owner: Meteor.userId()}).accountAddress;
+    console.log(findAccount);
   }
 });

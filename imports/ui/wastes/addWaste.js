@@ -79,7 +79,6 @@ Template.addWaste.events({
 
               //clear
               template.isLoading.set(false);
-              target.wasteName.value = '';
               dialog.close();
          }
 

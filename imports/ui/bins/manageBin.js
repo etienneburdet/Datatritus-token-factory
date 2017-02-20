@@ -8,7 +8,7 @@ import './manageBin.html';
 
 Template.manageBin.helpers({
   wastes() {
-    return Wastes.find({username: Meteor.user().username});
+    return Wastes.find({owner: Meteor.userId()});
   },
 
 })
