@@ -5,11 +5,23 @@
         <div class="mdl-layout-spacer"></div>
       </div>
       <div class="mdl-card__supporting-text">
-        {{metaMaskAddress}}
+        Compte MetaMask actif : {{metaMaskAddress}}
         <br>
-        <button class="mdl-button mdl-button-js mdl-button--raised link-account">Lier compte</button>
-        <br>
-        {{ethereumAccount}}
+        {{#if currentUser}}
+          {{#if isLinked}}
+           Le compte {{currentUser.username}} est lié à {{ethereumAccount}}
+           <br>
+           Changer et lier à {{metaMaskAddress}} ?
+           <br>
+           <button class="mdl-button mdl-button-js mdl-button--raised update-account-link">Update</button>
+         {{else}}
+            Lier {{currentUser.username}} à {{metaMaskAddress}} ?
+            <button class="mdl-button mdl-button-js mdl-button--raised link-account">Lier</button>
+            <br>
+          {{/if}}
+        {{else}}
+          {{> loginButtons}}
+        {{/if}}
       </div>
     </div>
 </template>

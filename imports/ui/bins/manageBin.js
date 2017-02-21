@@ -1,6 +1,5 @@
 import { Template } from 'meteor/templating';
 
-import { Bins } from '../../api/collections.js';
 import { Wastes } from '../../api/collections.js';
 
 import './manageBin.html';
