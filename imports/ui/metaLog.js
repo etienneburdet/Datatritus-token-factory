@@ -36,13 +36,14 @@ Template.metaLog.events({
     });
   },
 
-  'click .update-account-link' () {
+  'click .update-account-link' (event) {
+    event.preventDefault()
     const currentAddress = web3.eth.accounts[0];
-    const currentUser = Meteor.userId();
+    const doc = Ethereum.findOne({owner: Meteor.userId()});
 
-    Ethereum.update(
-      this._id,
-      { $set: {accountAddress: currentAddress} },
+    Ethereum.update(doc._id, {
+        $set: {accountAddress: currentAddress},
+      },
     );
   },
 });
