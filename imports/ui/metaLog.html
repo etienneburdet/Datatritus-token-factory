@@ -6,6 +6,9 @@
       </div>
       <div class="mdl-card__supporting-text">
         Compte MetaMask actif : {{metaMaskAddress}}
+        <button class="mdl-button mdl-button-js mdl-button--raised refresh-address">Rafraichir</button>
+        <br>
+        <button class="mdl-button mdl-button-js mdl-button--raised has-account">A un compte ?</button>
         <br>
         {{#if currentUser}}
           {{#if isLinked}}
@@ -20,7 +23,11 @@
             <br>
           {{/if}}
         {{else}}
-          {{> loginButtons}}
+          {{#if isLinked}}
+            Se logger ?
+          {{else}}
+            Créer un compte avec {{metaMaskAddress}} ?
+          {{/if}}
         {{/if}}
       </div>
     </div>

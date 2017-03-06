@@ -3,9 +3,13 @@ import { Wastes } from '../api/collections.js';
 
 import './metaLog.html';
 
+Template.metaLog.onCreated(function(){
+  this.currentAddress = new ReactiveVar(web3.eth.accounts[0]);
+});
+
 Template.metaLog.helpers({
   metaMaskAddress () {
-    return web3.eth.accounts[0];
+    return Template.instance().currentAddress.get();
   },
 
   ethereumAccount () {
@@ -13,20 +17,23 @@ Template.metaLog.helpers({
   },
 
   isLinked () {
-    const linkedAccount = Ethereum.findOne({ owner: Meteor.userId() });
+    const currentAddress = Template.instance().currentAddress.get();
+    const linkedAccount = Ethereum.findOne({ accountAddress: currentAddress });
 
     if (!linkedAccount) {
       return false;
     } else {
       return true;
     }
-  }
+  },
+
 });
 
 
 Template.metaLog.events({
-  'click .link-account' () {
-    const currentAddress = web3.eth.accounts[0];
+  'click .link-account' (event,template) {
+    event.preventDefault()
+    const currentAddress = template.currentAddress.get();
     const currentUser = Meteor.userId();
 
     Ethereum.insert({
@@ -36,7 +43,7 @@ Template.metaLog.events({
     });
   },
 
-  'click .update-account-link' (event) {
+  'click .update-account-link' (event,template) {
     event.preventDefault()
     const currentAddress = web3.eth.accounts[0];
     const doc = Ethereum.findOne({owner: Meteor.userId()});
@@ -46,4 +53,20 @@ Template.metaLog.events({
       },
     );
   },
+
+  'click .has-account' () {
+    const currentAddress = web3.eth.accounts[0];
+    const hasAccount = Ethereum.findOne({ accountAddress: currentAddress });
+    if (!hasAccount) {
+      console.log(false);
+    } else {
+      console.log(true);
+    }
+  },
+
+  'click .refresh-address' (event,template) {
+    const currentAddress = web3.eth.accounts[0];
+    template.currentAddress.set(currentAddress);
+  },
+
 });
