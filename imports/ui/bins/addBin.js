@@ -22,13 +22,13 @@ Template.addBin.events({
     const dialog = document.querySelector('dialog.addBinDialog');
     const target = event.target;
     const binName = target.binName.value;
+    const currentAccount = web3.eth.accounts[0];
 
 
     Bins.insert({
       binName,
       createdAt: new Date(),
-      owner: Meteor.userId(),
-      username: Meteor.user().username,
+      owner: currentAccount,
     });
 
 

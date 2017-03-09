@@ -10,24 +10,20 @@
         <br>
         <button class="mdl-button mdl-button-js mdl-button--raised has-account">A un compte ?</button>
         <br>
-        {{#if currentUser}}
-          {{#if isLinked}}
-           Le compte {{currentUser.username}} est lié à {{ethereumAccount}}
-           <br>
-           Changer et lier à {{metaMaskAddress}} ?
-           <br>
-           <button class="mdl-button mdl-button-js mdl-button--raised update-account-link">Update</button>
-         {{else}}
-            Lier {{currentUser.username}} à {{metaMaskAddress}} ?
-            <button class="mdl-button mdl-button-js mdl-button--raised link-account">Lier</button>
-            <br>
-          {{/if}}
+        {{#if isLinked}}
+          Bonjour {{userName}}
         {{else}}
-          {{#if isLinked}}
-            Se logger ?
-          {{else}}
-            Créer un compte avec {{metaMaskAddress}} ?
-          {{/if}}
+        <form class="link-account">
+          Créer un compte avec {{metaMaskAddress}} ? <br>
+          <div class="mdl-textfield mdl-js-textfield">
+            <input class="mdl-textfield__input" name="userName" type="text">
+            <label class="mdl-textfield__label">Nom d'utilisateur…</label>
+            <br>
+          </div>
+          <div class="mdl-card__actions">
+            <button type="submit" class="mdl-button mdl-button-js mdl-button--raised">Créer Compte</button>
+          </div>
+        </form>
         {{/if}}
       </div>
     </div>

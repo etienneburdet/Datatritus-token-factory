@@ -1,13 +1,15 @@
 import { Template } from 'meteor/templating';
 
 import { Wastes } from '../../api/collections.js';
+import { Bins } from '../../api/collections.js';
 
 import './manageBin.html';
 
 
 Template.manageBin.helpers({
   wastes() {
-    return Wastes.find({owner: Meteor.userId()});
+    const currentAccount = web3.eth.account[0];
+    return Wastes.find({owner: currentAccount});
   },
 
 })

@@ -14,17 +14,13 @@ import './wastes/manageWaste.js';
 import './mainLayout.html';
 import './menuHead.js';
 
-Accounts.ui.config({
-  passwordSignupFields: 'USERNAME_ONLY',
-});
-
 Template.mainLayout.helpers({
   bins() {
-    return Bins.find({username: Meteor.user().username});
+    return Bins.find({owner: web3.eth.accounts[0]});
   },
 
   wastes() {
-    return Wastes.find({username: Meteor.user().username});
+    return Wastes.find({owner: web3.eth.accounts[0]});
   },
 });
 
