@@ -3,10 +3,9 @@ import { Wastes } from '../api/collections.js';
 
 import './metaLog.html';
 
-Template.metaLog.onCreated(function(){
-  this.currentAddress = new ReactiveVar(web3.eth.accounts[0]);
-  this.isLogged = new ReactiveVar(false);
-});
+//Template.metaLog.onCreated(function(){
+//  this.currentAddress = new ReactiveVar(web3.eth.accounts[0]);
+//});
 
 Template.metaLog.helpers({
   metaMaskAddress () {
@@ -15,7 +14,7 @@ Template.metaLog.helpers({
 
 
   isLinked () {
-    const currentAddress = Template.instance().currentAddress.get();
+    const currentAddress = Session.get('currentAddress');
     const linkedAccount = UserInfo.findOne({ accountAddress: currentAddress });
 
     if (!linkedAccount) {
