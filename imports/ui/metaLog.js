@@ -3,13 +3,10 @@ import { Wastes } from '../api/collections.js';
 
 import './metaLog.html';
 
-//Template.metaLog.onCreated(function(){
-//  this.currentAddress = new ReactiveVar(web3.eth.accounts[0]);
-//});
 
 Template.metaLog.helpers({
   metaMaskAddress () {
-    return Template.instance().currentAddress.get();
+    return Session.get('currentAddress');
   },
 
 
@@ -17,16 +14,12 @@ Template.metaLog.helpers({
     const currentAddress = Session.get('currentAddress');
     const linkedAccount = UserInfo.findOne({ accountAddress: currentAddress });
 
-    if (!linkedAccount) {
-      return false;
-    } else {
-      return true;
-    }
+    return (!!linkedAccount);
   },
 
 
   userName () {
-    const currentAddress = Template.instance().currentAddress.get();
+    const currentAddress = Session.get("currentAddress");
     return UserInfo.findOne({accountAddress: currentAddress}).userName;
   },
 
@@ -35,14 +28,20 @@ Template.metaLog.helpers({
 
 Template.metaLog.events({
   'submit .link-account' (event,template) {
-    event.preventDefault()
-    const currentAddress = template.currentAddress.get();
+    event.preventDefault();
+    const currentAddress = Session.get("currentAddress");
     const userName = event.target.userName.value;
 
     UserInfo.insert({
       accountAddress: currentAddress,
       userName: userName,
     });
+  },
+
+  'click .go-login' (event) {
+    event.preventDefault();
+    Session.set('isLogged',true);
+    Router.go('/');
   },
 
   'submit .fakeLog' (event,template) {
@@ -67,16 +66,12 @@ Template.metaLog.events({
   'click .has-account' () {
     const currentAddress = web3.eth.accounts[0];
     const hasAccount = UserInfo.findOne({ accountAddress: currentAddress });
-    if (!hasAccount) {
-      console.log(false);
-    } else {
-      console.log(true);
-    }
+    return (!!hasAccount);
   },
 
   'click .refresh-address' (event,template) {
     const currentAddress = web3.eth.accounts[0];
-    template.currentAddress.set(currentAddress);
+    Session.set("currentAddress",currentAddress);
   },
 
 });

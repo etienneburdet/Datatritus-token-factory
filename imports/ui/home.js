@@ -10,8 +10,10 @@ import './ethTemp.js';
 import './metaLog.js'
 
 Template.metaLog.onCreated(function(){
-  Session.set('currentAddress', web3.eth.accounts[0]);
+  const currentAddress = web3.eth.accounts[0];
+  Session.set('currentAddress', currentAddress);
 });
+
 
 Template.home.helpers({
 
@@ -26,44 +28,18 @@ Template.home.helpers({
 
 
   bins() {
-    return Bins.find({username: Meteor.user().username});
-  },
-
-
-  isLinked () {
-    const currentAddress = Session.get('currentAddress');
-    const linkedAccount = UserInfo.findOne({ accountAddress: currentAddress });
-
-    return !linkedAccount;
-  },
-
-  isLinked () {
-    const currentAddress = Session.get('currentAddress');
-    const linkedAccount = UserInfo.findOne({ accountAddress: currentAddress });
-
-    if (!linkedAccount) {
-      return false;
-    } else {
-      return true;
-    }
+    return Bins.find({owner: Session.get('currentAddress')});
   },
 
 });
 
-Template.home.events({
-  'click .is-linked ' () {
-    const currentAddress = web3.eth.accounts[0];
-    const linkedAccount = UserInfo.findOne({ accountAddress: currentAddress });
-
-    console.log(!linkedAccount);
-  }
-});
 
 Template.day.helpers({
   bins() {
-    return Bins.find({username: Meteor.user().username});
+    return Bins.find({username: Session.get('currentAddress')});
   },
 });
+
 
 Template.today.helpers({
   bins() {

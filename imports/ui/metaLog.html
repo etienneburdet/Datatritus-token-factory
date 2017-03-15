@@ -5,23 +5,27 @@
         <div class="mdl-layout-spacer"></div>
       </div>
       <div class="mdl-card__supporting-text">
-        Compte MetaMask actif : {{metaMaskAddress}}
-        <button class="mdl-button mdl-button-js mdl-button--raised refresh-address">Rafraichir</button>
-        <br>
-        <button class="mdl-button mdl-button-js mdl-button--raised has-account">A un compte ?</button>
-        <br>
         {{#if isLinked}}
           Bonjour {{userName}}
+          <br>
+          ( {{metaMaskAddress}} )
+          <br>
+          <button class="mdl-button mdl-button-js mdl-button--raised refresh-address">Changer le compte</button>
+          <button class="mdl-button mdl-button-js mdl-button--raised go-login">Go !</button>
         {{else}}
         <form class="link-account">
-          Créer un compte avec {{metaMaskAddress}} ? <br>
+        Bonjour {{metaMaskAddress}} !
+        <br>
+        Entrez un nom d'utilisateur pour créer un compte
+        <br>
           <div class="mdl-textfield mdl-js-textfield">
             <input class="mdl-textfield__input" name="userName" type="text">
             <label class="mdl-textfield__label">Nom d'utilisateur…</label>
             <br>
           </div>
           <div class="mdl-card__actions">
-            <button type="submit" class="mdl-button mdl-button-js mdl-button--raised">Créer Compte</button>
+            <button type="submit" class="mdl-button mdl-button-js mdl-button--raised">Créer mon Compte !</button>
+            <button class="mdl-button mdl-button-js mdl-button--raised refresh-address">Changer le compte</button>
           </div>
         </form>
         {{/if}}

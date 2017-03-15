@@ -1,13 +1,8 @@
 <template name="home">
   <div class="mdl-grid center-cards mdl-color--grey-100">
-    {{#if isLinked}}
-      {{> today}}
-      {{#each days}}
-        {{> day}}
-      {{/each}}
-    {{else}}
-      {{> metaLog}}
-    {{/if}}
+    {{> today}}
+    {{#each days}}
+      {{> day}}
+    {{/each}}
   </div>
-  <button class="mdl-button mdl-button-js mdl-button--raised is-linked">isLinked</button>
 </template>

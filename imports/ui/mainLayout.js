@@ -14,20 +14,33 @@ import './wastes/manageWaste.js';
 import './mainLayout.html';
 import './menuHead.js';
 
+Template.mainLayout.onCreated(function(){
+  const currentAddress = web3.eth.accounts[0];
+  Session.set('currentAddress', currentAddress);
+});
+
 Template.mainLayout.helpers({
   bins() {
-    return Bins.find({owner: web3.eth.accounts[0]});
+    return Bins.find({owner: Session.get('currentAddress')});
   },
 
   wastes() {
-    return Wastes.find({owner: web3.eth.accounts[0]});
+    return Wastes.find({owner: Session.get('currentAddress')});
   },
+
+  isLogged() {
+    return Session.get('isLogged');
+  }
 });
 
 Template.mainLayout.events({
   'click button.show-dialog'(){
     const dialog = document.querySelector('dialog');
     dialog.showModal();
+  },
+
+  'click .is-logged'(){
+    console.log(Session.get('isLogged'));
   },
 });
 
@@ -48,6 +61,21 @@ Router.route('/manageWaste/:_id', function () {
   });
 });
 
-Router.route('/', function () {
-  this.render('home');
+Router.route('/login', function () {
+  this.render('metaLog');
+});
+
+
+Router.route('/', {
+onBeforeAction: function () {
+  if (!isLogged) {
+    this.redirect('/login');
+  } else {
+    this.next();
+  }
+},
+
+function () {
+    this.render('home');
+  }
 });

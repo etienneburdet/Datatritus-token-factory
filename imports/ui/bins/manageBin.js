@@ -8,8 +8,7 @@ import './manageBin.html';
 
 Template.manageBin.helpers({
   wastes() {
-    const currentAccount = web3.eth.account[0];
-    return Wastes.find({owner: currentAccount});
+    return Wastes.find({owner: Session.get("currentAddress")});
   },
 
 })
