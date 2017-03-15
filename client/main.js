@@ -9,3 +9,11 @@ Template.body.onCreated(function() {
 Router.configure({
   layoutTemplate: 'mainLayout'
 });
+
+Router.onBeforeAction( function() {
+  if (!Session.get('isLogged')) {
+    this.render('metaLog');
+  } else {
+    this.next();
+  }
+});

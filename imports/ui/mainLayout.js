@@ -44,7 +44,6 @@ Template.mainLayout.events({
   },
 });
 
-
 Router.route('/manageBin/:_id', function () {
   this.render('manageBin', {
     data: function () {
@@ -66,16 +65,6 @@ Router.route('/login', function () {
 });
 
 
-Router.route('/', {
-onBeforeAction: function () {
-  if (!isLogged) {
-    this.redirect('/login');
-  } else {
-    this.next();
-  }
-},
-
-function () {
+Router.route('/', function () {
     this.render('home');
-  }
 });
