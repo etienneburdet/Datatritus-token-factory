@@ -38,20 +38,13 @@ Template.metaLog.events({
     });
   },
 
+
   'click .go-login' (event) {
     event.preventDefault();
     Session.set('isLogged',true);
     Router.go('/');
   },
 
-  'submit .fakeLog' (event,template) {
-    const currentAddress = template.currentAddress.get();
-
-    UserInfo.insert({
-      accountAddress: currentAddress,
-      userName: userName,
-    });
-  },
 
   'submit .change-name' (event,template) {
     event.preventDefault()
@@ -63,11 +56,6 @@ Template.metaLog.events({
     );
   },
 
-  'click .has-account' () {
-    const currentAddress = web3.eth.accounts[0];
-    const hasAccount = UserInfo.findOne({ accountAddress: currentAddress });
-    return (!!hasAccount);
-  },
 
   'click .refresh-address' (event,template) {
     const currentAddress = web3.eth.accounts[0];
